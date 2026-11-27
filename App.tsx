@@ -22,6 +22,7 @@ export default function App(): ReactElement {
     newTodo,
     setNewTodo,
     addTodo,
+    removeTodo,
     toggleTodo,
   } = useTodos();
 
@@ -46,7 +47,12 @@ export default function App(): ReactElement {
         renderItem={(
           { item }: ListRenderItemInfo<Todo>
         ): ReactElement => (
-          <TodoItem todo={item} onToggle={toggleTodo} />
+          <TodoItem
+            todo={item}
+            onToggle={toggleTodo}
+            // New line that links the delete button to the delete function provided by the custom hook.
+            onRemove={removeTodo}
+          />
         )}
       />
     </View>
