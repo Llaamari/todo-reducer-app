@@ -28,7 +28,7 @@ export default function TodoItem({
     <View style={styles.container}>
       <Pressable
         style={styles.task}
-        onPress={() => onToggle(todo.id)}
+        onPress={(): void => onToggle(todo.id)}
       >
         <Text
           // Retained the correction to the overline problem
@@ -48,7 +48,7 @@ export default function TodoItem({
       {/* The delete button */}
       <Pressable
         style={styles.removeButton}
-        onPress={() => onRemove(todo.id)}
+        onPress={(): void => onRemove(todo.id)}
       >
         <Text style={styles.removeButtonText}>
           DELETE

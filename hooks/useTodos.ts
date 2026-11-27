@@ -1,10 +1,11 @@
 
 import { useReducer, useState } from 'react';
 import type { Todo } from '../types/Todo';
+import type { TodoAction } from '../types/TodoAction';
 import { todoReducer } from '../reducers/todoReducer';
 
 // Defines the return type of the custom hook.
-type UseTodosReturn = {
+export type UseTodosReturn = {
   todos: Todo[];
   newTodo: string;
   setNewTodo: (text: string) => void;
@@ -19,10 +20,10 @@ const initialTodos: Todo[] = [];
 // Custom hook for managing todo state and actions.
 export function useTodos(): UseTodosReturn {
   // useReducer
-  const [todos, dispatch] = useReducer(
-    todoReducer,
-    initialTodos
-  );
+  const [todos, dispatch]: [
+    Todo[],
+    (action: TodoAction) => void
+  ] = useReducer(todoReducer, initialTodos);
 
   const [newTodo, setNewTodo] = useState<string>('');
 

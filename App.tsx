@@ -11,6 +11,7 @@ import {
 import type { ListRenderItemInfo } from 'react-native';
 
 import type { Todo } from './types/Todo';
+import type { UseTodosReturn } from './hooks/useTodos';
 import TodoItem from './components/TodoItem';
 // Importing a custom hook
 import { useTodos } from './hooks/useTodos';
@@ -24,7 +25,7 @@ export default function App(): ReactElement {
     addTodo,
     removeTodo,
     toggleTodo,
-  } = useTodos();
+  }: UseTodosReturn = useTodos();
 
   return (
     <View style={styles.container}>
